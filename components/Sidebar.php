@@ -35,7 +35,7 @@
         </a>
       </li>
       <li class="menu-item <?= active('search') ?>">
-        <a href="./index.php">
+        <a href="<?= in_array('pages', $url) ? '../..' : '.' ?>/pages/search/index.php">
           <span class="material-icons">
             search
           </span>

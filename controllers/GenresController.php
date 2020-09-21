@@ -10,13 +10,13 @@
 
   include_once($url.'/services/api.php');
 
-  $response = $api('genres');
+  $response = api('genres');
 
   $genres = $response->results;
 
   $id = $_GET['id'] ?? $genres[0]->id;
   $page = $_GET['page'] ?? 1;
 
-  $response = $api("games?genres={$id}&page={$page}");
+  $response = api("games?genres={$id}&page={$page}");
 
   $data = $response->results;

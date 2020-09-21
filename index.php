@@ -22,19 +22,7 @@
     <?php include_once('./components/Sidebar.php') ?>
 
     <div>
-      <header class="header-search">
-        <button type="button" onclick="handleMenu()">
-          <span class="material-icons">
-            sort
-          </span>
-        </button>
-        <a href="./index.php" class="field-search">
-          <span class="material-icons">
-            search
-          </span>
-          Search
-        </a>
-      </header>
+      <?php include_once('./components/Header.php') ?>
 
       <section class="flyer">
         <div class="background" style="background: url(<?= $data[$sorty]->background_image ?>), #000;"></div>

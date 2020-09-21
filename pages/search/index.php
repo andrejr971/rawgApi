@@ -3,7 +3,7 @@
   error_reporting(E_ALL);
   ini_set("display_errors", 1);
 
-  include_once('../../controllers/GenresController.php');
+  include_once('../../controllers/SearchController.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -28,24 +28,24 @@
 
       <main>
         <article class="container">
-          <form action="" method="GET" class="header-genres">
-            <select name="id" id="select-genre">
-              <?php
-                foreach ($genres as $genre) {
-              ?>
-                <option value="<?= $genre->id ?>" <?= intval($id) === $genre->id ? 'selected' : '' ?>>
-                  <?= $genre->name ?>
-                </option>
-              <?php
-                  }
-                  ?>
-            </select>
+          <form action="" method="POST" class="header-search">
+            <input type="text" name="search" value="<?= $_POST['search'] ?? '' ?>" placeholder="Enter a game name"
+              required>
             <button type="submit">
               <span class="material-icons">
-                filter_alt
+                search
               </span>
             </button>
           </form>
+
+          <?php
+            if(isset($_POST['search'])) {
+          ?>
+          <h2 style="margin: 10px 0 20px;">Resultados da pesquisa: "<?= $_POST['search'] ?>"</h2>
+
+          <?php 
+            if (count($data) > 0) {
+          ?>
 
           <div class="grid">
             <?php 
@@ -100,25 +100,34 @@
           }
           ?>
           </div>
+          <?php
+            }
+            else {
+              ?>
+          <p>Nenhum resultado encontrado</p>
+          <?php
+            }
+          }
+          ?>
         </article>
       </main>
     </div>
   </div>
 
   <script>
-    const sidebar = document.getElementById('sidebar');
+  const sidebar = document.getElementById('sidebar');
 
-    const handleMenu = () => {
-      const open = sidebar.classList.contains('open');
+  const handleMenu = () => {
+    const open = sidebar.classList.contains('open');
 
-      if (!open) {
-        sidebar.classList.add('open');
-        sidebar.style.cssText = 'left: 0';
-      } else {
-        sidebar.classList.remove('open');
-        sidebar.style.cssText = 'left: -120%';
-      }
+    if (!open) {
+      sidebar.classList.add('open');
+      sidebar.style.cssText = 'left: 0';
+    } else {
+      sidebar.classList.remove('open');
+      sidebar.style.cssText = 'left: -120%';
     }
+  }
   </script>
 </body>
 

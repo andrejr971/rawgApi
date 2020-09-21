@@ -11,17 +11,17 @@
   $id = $_GET['id'] ?? '-';
 
   if ($id === '-') {
-    header("Location: {$url}index.php");
+    header("Location: {$url}pages/errors/404");
   }
 
   include_once($url.'/services/api.php');
 
-  $response = $api("games/{$id}");
+  $response = api("games/{$id}");
 
   if (empty($response)) {
-    header("Location: {$url}index.php");
+    header("Location: {$url}pages/errors/404");
   }
 
-  $screenshots = $api("games/{$id}/screenshots");
+  $screenshots = api("games/{$id}/screenshots");
 
   $data = $response;

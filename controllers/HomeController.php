@@ -13,7 +13,7 @@
 
   $page = $_GET['page'] ?? 1;
 
-  $response = $api("games?page={$page}");
+  $response = api("games?page={$page}");
 
   $data = $response->results;
 
