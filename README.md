@@ -1,6 +1,8 @@
 # RAWGAPI - Consumo api da [RAWG](https://api.rawg.io/docs)
 Esta aplicação tem como finalidade consumir dados fornecidas pela [RAWG](https://api.rawg.io/docs)
-através da linguagem PHP
+através da linguagem PHP.
+
+Link para o [wireframe](https://www.figma.com/file/lmuHQLVD3AJJStxZOK1OEb/API?node-id=8%3A0)
 
 **TELA INICIAL**
 ![Screenshot_20200921_172311](https://user-images.githubusercontent.com/49952031/93822824-2dcc8380-fc37-11ea-9e5d-f828fc619af4.png)
